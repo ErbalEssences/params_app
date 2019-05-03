@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  def query_params
-    @message = params["my_message"]
-    @message_2 = params["message_2"]
-
-    render 'query_params.json.jbuilder'
+  namespace :api do
+    get '/query_params_url' => 'perams#query_params'
+    get '/segment_params/:this_is_a_variable' => 'perams#segment_params'
+    post '/body_params' => 'perams#body_params'
   end
 end
